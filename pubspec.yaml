@@ -1,7 +1,7 @@
 name: custom_signature
 description: This package project offers an easy way to get your signature with a custom UI, and rotates automatically into landscape mode for most comfortable space to sign.
 version: 0.0.2
-homepage: https://github.com/ma-sc-24
+homepage: https://github.com/ma-sc-24/custom_signature
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
