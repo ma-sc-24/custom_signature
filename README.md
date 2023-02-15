@@ -7,8 +7,8 @@ This package project offers an easy way to get your signature with a custom UI, 
 
 ```dart
 CustomSignature(
-    title: 'Signature',
     context: context
+    title: 'Signature',
     closeButtonColor: Colors.indigo,
     icon: FontAwesomeIcons.circleXmark,
     enabledButtonColor: Colors.green,
