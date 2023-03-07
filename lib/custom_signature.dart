@@ -90,23 +90,22 @@ class _CustomSignatureState extends State<CustomSignature> {
   Widget build(BuildContext context) {
     context = widget.context;
 
-    return Scaffold(
+     return Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: _bottomActions(),
-      body: SafeArea(
-          child: Column(
+      body: Column(
         children: [
-          _headerInformation(widget.title),
-          _signContainer(),
+      _headerInformation(widget.title),
+      _signContainer(),
         ],
-      )),
+      ),
     );
   }
 
   /// Builds the header of the screen, that contains the title and the close button.
   Container _headerInformation(String title) {
     return Container(
-      padding: const EdgeInsets.only(left: 10, right: 5),
+      padding: const EdgeInsets.only(left: 50, right: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -142,39 +141,56 @@ class _CustomSignatureState extends State<CustomSignature> {
   /// Builds in the bottom of the screen, the buttons to clean or send the signature, besides theirs properties.
   Widget _bottomActions() {
     return BottomAppBar(
-        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+      elevation: 0,
         color: Colors.white,
-        child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-          TextButton(
-            style: TextButton.styleFrom(
-                foregroundColor: widget.enabledButtonColor),
-            onPressed: (!isButtonActive)
-                ? null
-                : () {
-                    setState(() {
-                      isButtonActive = false;
-                      _controller.clear();
-                    });
-                  },
-            child: Text(widget.deleteButtonText,
-                style: TextStyle(
-                    color: (isButtonActive)
-                        ? widget.enabledButtonColor
-                        : widget.disabledButtonColor)),
-          ),
-          const SizedBox(width: 20),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                disabledBackgroundColor: widget.disabledButtonColor,
-                backgroundColor: widget.enabledButtonColor),
-            onPressed: (!isButtonActive) ? null : () => exportImage(),
-            child: Text(widget.doneButtonText,
-                style: TextStyle(
-                    color: (isButtonActive)
-                        ? Colors.white
-                        : widget.enabledButtonColor)),
-          ),
-        ]));
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Divider(
+              height: 1,
+              color: widget.disabledButtonColor,
+              thickness: 1,
+              indent: 0,
+              endIndent: 0,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end, 
+                children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                      foregroundColor: widget.enabledButtonColor),
+                  onPressed: (!isButtonActive)
+                      ? null
+                      : () {
+                          setState(() {
+                            isButtonActive = false;
+                            _controller.clear();
+                          });
+                        },
+                  child: Text(widget.deleteButtonText,
+                      style: TextStyle(
+                          color: (isButtonActive)
+                              ? widget.enabledButtonColor
+                              : widget.disabledButtonColor)),
+                ),
+                const SizedBox(width: 20),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      disabledBackgroundColor: widget.disabledButtonColor,
+                      backgroundColor: widget.enabledButtonColor),
+                  onPressed: (!isButtonActive) ? null : () => exportImage(),
+                  child: Text(widget.doneButtonText,
+                      style: TextStyle(
+                          color: (isButtonActive)
+                              ? Colors.white
+                              : widget.enabledButtonColor)),
+                ),
+              ]),
+            ),
+          ],
+        ));
   }
 
   /// Exports image in 8-bit format and send it to the next sceen.
