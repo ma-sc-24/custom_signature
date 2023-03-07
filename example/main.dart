@@ -37,7 +37,6 @@ class FirstPage extends StatelessWidget {
                               Colors.lightGreen.withOpacity(0.5),
                           penColor: Colors.black,
                           textColor: Colors.black,
-                          nextPage: const ShowSignaturePage(),
                           deleteButtonText: 'Delete',
                           doneButtonText: 'Done',
                           closeAlert: AlertDialog(

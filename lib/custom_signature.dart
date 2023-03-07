@@ -14,7 +14,6 @@ class CustomSignature extends StatefulWidget {
   final IconData icon;
   final String deleteButtonText;
   final String doneButtonText;
-  final Widget nextPage;
   final Widget? closeAlert;
   final Color? backgroundColor;
   final Color? textColor;
@@ -29,7 +28,6 @@ class CustomSignature extends StatefulWidget {
     required this.disabledButtonColor,
     required this.penColor,
     required this.icon,
-    required this.nextPage,
     required this.deleteButtonText,
     required this.doneButtonText,
     this.closeAlert,
@@ -93,11 +91,13 @@ class _CustomSignatureState extends State<CustomSignature> {
     return Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: _bottomActions(),
-      body: Column(
-        children: [
-          _headerInformation(widget.title),
-          _signContainer(),
-        ],
+      body: Expanded(
+        child: Column(
+          children: [
+            _headerInformation(widget.title),
+            _signContainer(),
+          ],
+        ),
       ),
     );
   }
@@ -195,16 +195,12 @@ class _CustomSignatureState extends State<CustomSignature> {
   Future<void> exportImage() async {
     final Uint8List? data =
         await _controller.toPngBytes(height: 1000, width: 1000);
+
     if (data == null) {
       return;
     }
 
     if (!mounted) return;
-
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (_) => widget.nextPage,
-            settings: RouteSettings(arguments: data)));
+    Navigator.pop(context, data);
   }
 }
