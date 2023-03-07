@@ -90,13 +90,13 @@ class _CustomSignatureState extends State<CustomSignature> {
   Widget build(BuildContext context) {
     context = widget.context;
 
-     return Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: _bottomActions(),
       body: Column(
         children: [
-      _headerInformation(widget.title),
-      _signContainer(),
+          _headerInformation(widget.title),
+          _signContainer(),
         ],
       ),
     );
@@ -141,7 +141,7 @@ class _CustomSignatureState extends State<CustomSignature> {
   /// Builds in the bottom of the screen, the buttons to clean or send the signature, besides theirs properties.
   Widget _bottomActions() {
     return BottomAppBar(
-      elevation: 0,
+        elevation: 0,
         color: Colors.white,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -155,9 +155,7 @@ class _CustomSignatureState extends State<CustomSignature> {
             ),
             Padding(
               padding: const EdgeInsets.only(right: 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end, 
-                children: [
+              child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                 TextButton(
                   style: TextButton.styleFrom(
                       foregroundColor: widget.enabledButtonColor),
