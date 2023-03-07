@@ -91,13 +91,11 @@ class _CustomSignatureState extends State<CustomSignature> {
     return Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: _bottomActions(),
-      body: Expanded(
-        child: Column(
-          children: [
-            _headerInformation(widget.title),
-            _signContainer(),
-          ],
-        ),
+      body: Column(
+        children: [
+          _headerInformation(widget.title),
+          _signContainer(),
+        ],
       ),
     );
   }
