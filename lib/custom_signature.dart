@@ -103,7 +103,8 @@ class _CustomSignatureState extends State<CustomSignature> {
   /// Builds the header of the screen, that contains the title and the close button.
   Container _headerInformation(String title) {
     return Container(
-      padding: const EdgeInsets.only(left: 50, right: 30),
+      width: double.infinity,
+      padding: const EdgeInsets.only(left: 50, right: 40),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -139,6 +140,7 @@ class _CustomSignatureState extends State<CustomSignature> {
   /// Builds in the bottom of the screen, the buttons to clean or send the signature, besides theirs properties.
   Widget _bottomActions() {
     return BottomAppBar(
+        height: 85,
         elevation: 0,
         color: Colors.white,
         child: Column(
@@ -193,7 +195,6 @@ class _CustomSignatureState extends State<CustomSignature> {
   Future<void> exportImage() async {
     final Uint8List? data =
         await _controller.toPngBytes(height: 1000, width: 1000);
-
     if (data == null) {
       return;
     }

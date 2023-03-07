@@ -1,4 +1,7 @@
-## 1.0.1
+## 1.0.3
+ * Size adjustments.
+
+## 1.0.2
  * Remove unnesessary widget.
 
 ## 1.0.1
