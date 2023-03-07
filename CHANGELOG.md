@@ -1,4 +1,7 @@
 ## 1.0.1
+ * Remove unnesessary widget.
+
+## 1.0.1
  * Example updated.
 
 ## 1.0.0
