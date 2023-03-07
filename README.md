@@ -13,7 +13,6 @@ CustomSignature(
     enabledButtonColor: Colors.green,
     disabledButtonColor: Colors.lightGreen.withOpacity(0.5),
     penColor: Colors.black,
-    nextPage: const SecondPage(),
     deleteButtonText: 'Delete',
     doneButtonText: 'Done',
     // optional properties
