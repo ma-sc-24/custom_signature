@@ -1,4 +1,7 @@
-# 0.0.4
+## 0.0.5
+* UI optimizations.
+
+## 0.0.4
 * UI optimizations.
 
 ## 0.0.3
