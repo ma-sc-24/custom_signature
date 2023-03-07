@@ -1,6 +1,5 @@
 import 'package:custom_signature/custom_signature.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 void main() => runApp(const MyApp());
 
@@ -23,8 +22,8 @@ class FirstPage extends StatelessWidget {
         body: Center(
       child: ElevatedButton(
           child: const Text('To sign'),
-          onPressed: () {
-            Navigator.push(
+          onPressed: () async {
+            await Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (BuildContext context) => CustomSignature(
@@ -53,49 +52,22 @@ class FirstPage extends StatelessWidget {
                                   child: const Text('No')),
                             ],
                           ),
-                        )));
+                        ))).then((value) {
+              showDialog(
+                  context: context,
+                  builder: (_) {
+                    return AlertDialog(
+                      actions: [
+                        TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text('Close'))
+                      ],
+                      title: const Text('Signature'),
+                      content: Image.memory(value),
+                    );
+                  });
+            });
           }),
     ));
-  }
-}
-
-class ShowSignaturePage extends StatefulWidget {
-  const ShowSignaturePage({super.key});
-
-  @override
-  State<ShowSignaturePage> createState() => _ShowSignaturePageState();
-}
-
-class _ShowSignaturePageState extends State<ShowSignaturePage> {
-  @override
-  void initState() {
-    super.initState();
-
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft,
-    ]);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    Uint8List data = ModalRoute.of(context)!.settings.arguments as Uint8List;
-
-    return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Image.memory(data),
-      ),
-    );
   }
 }

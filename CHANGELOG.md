@@ -1,3 +1,6 @@
+## 1.0.1
+ * Example updated.
+
 ## 1.0.0
 * Remove nextPage widget parameter and navigate backward with a pop() function.
 
