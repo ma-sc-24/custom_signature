@@ -1,3 +1,6 @@
+# 0.0.4
+* UI optimizations.
+
 ## 0.0.3
 * Package adjustments.
 * Example updated.

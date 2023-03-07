@@ -1,4 +1,3 @@
-
 ## Custom signature
 
 This package project offers an easy way to get your signature with a custom UI, and rotates automatically into landscape mode for most comfortable space to sign.
@@ -44,8 +43,8 @@ Is recommended that the screen to going to navigate has Stateful Widget with pre
 
 ```dart
 SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
     ]);
+  }
 ```
-# custom_signature
