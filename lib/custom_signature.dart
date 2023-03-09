@@ -91,11 +91,13 @@ class _CustomSignatureState extends State<CustomSignature> {
     return Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: _bottomActions(),
-      body: Column(
-        children: [
-          _headerInformation(widget.title),
-          _signContainer(),
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            _headerInformation(widget.title),
+            _signContainer(),
+          ],
+        ),
       ),
     );
   }
@@ -104,11 +106,11 @@ class _CustomSignatureState extends State<CustomSignature> {
   Container _headerInformation(String title) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.only(left: 50, right: 40),
+      padding: const EdgeInsets.only(left: 20, right: 22, top: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: TextStyle(color: widget.textColor)),
+          Text(title, style: TextStyle(color: widget.textColor, fontFamily: 'IBMPlexSans', fontSize: 16)),
           IconButton(
             icon: Icon(widget.icon, size: 25),
             color: widget.closeButtonColor,
@@ -154,7 +156,7 @@ class _CustomSignatureState extends State<CustomSignature> {
               endIndent: 0,
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 5),
+              padding: const EdgeInsets.only(right: 30, top: 10),
               child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                 TextButton(
                   style: TextButton.styleFrom(
@@ -167,23 +169,38 @@ class _CustomSignatureState extends State<CustomSignature> {
                             _controller.clear();
                           });
                         },
-                  child: Text(widget.deleteButtonText,
+                  child: SizedBox(
+                    width: 142,
+                    child: Text(widget.deleteButtonText,
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                           color: (isButtonActive)
                               ? widget.enabledButtonColor
-                              : widget.disabledButtonColor)),
+                              : widget.disabledButtonColor,
+                          fontFamily: 'IBMPlexSans',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600)),
+                  ),
                 ),
-                const SizedBox(width: 20),
+                const SizedBox(width: 10),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      disabledBackgroundColor: widget.disabledButtonColor,
-                      backgroundColor: widget.enabledButtonColor),
+                    elevation: 0,
+                    disabledBackgroundColor: widget.disabledButtonColor,
+                    backgroundColor: widget.enabledButtonColor),
                   onPressed: (!isButtonActive) ? null : () => exportImage(),
-                  child: Text(widget.doneButtonText,
-                      style: TextStyle(
+                  child: SizedBox(
+                    width: 212,
+                    child: Text(widget.doneButtonText,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
                           color: (isButtonActive)
                               ? Colors.white
-                              : widget.enabledButtonColor)),
+                              : widget.enabledButtonColor,
+                          fontFamily: 'IBMPlexSans',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600)),
+                  ),
                 ),
               ]),
             ),
