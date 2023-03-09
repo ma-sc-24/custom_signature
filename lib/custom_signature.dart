@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:signature/signature.dart';
 
 /// Main class
@@ -86,6 +87,7 @@ class _CustomSignatureState extends State<CustomSignature> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(375, 812));
     context = widget.context;
 
     return Scaffold(
@@ -106,13 +108,13 @@ class _CustomSignatureState extends State<CustomSignature> {
   Container _headerInformation(String title) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.only(left: 20, right: 22, top: 15),
+      padding: EdgeInsets.only(left: 20.w, right: 22.w, top: 15.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: TextStyle(color: widget.textColor, fontFamily: 'IBMPlexSans', fontSize: 16)),
+          Text(title, style: TextStyle(color: widget.textColor, fontFamily: 'IBMPlexSans', fontSize: 16.sp)),
           IconButton(
-            icon: Icon(widget.icon, size: 25),
+            icon: Icon(widget.icon, size: 23.w),
             color: widget.closeButtonColor,
             onPressed: () {
               if (widget.closeAlert == null) {
@@ -142,7 +144,7 @@ class _CustomSignatureState extends State<CustomSignature> {
   /// Builds in the bottom of the screen, the buttons to clean or send the signature, besides theirs properties.
   Widget _bottomActions() {
     return BottomAppBar(
-        height: 85,
+        height: 85.h,
         elevation: 0,
         color: Colors.white,
         child: Column(
@@ -156,7 +158,7 @@ class _CustomSignatureState extends State<CustomSignature> {
               endIndent: 0,
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 30, top: 10),
+              padding: EdgeInsets.only(right: 30.w, top: 10.h),
               child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                 TextButton(
                   style: TextButton.styleFrom(
@@ -170,7 +172,7 @@ class _CustomSignatureState extends State<CustomSignature> {
                           });
                         },
                   child: SizedBox(
-                    width: 142,
+                    width: 142.w,
                     child: Text(widget.deleteButtonText,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -178,11 +180,11 @@ class _CustomSignatureState extends State<CustomSignature> {
                               ? widget.enabledButtonColor
                               : widget.disabledButtonColor,
                           fontFamily: 'IBMPlexSans',
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w600)),
                   ),
                 ),
-                const SizedBox(width: 10),
+                SizedBox(width: 10.w),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
@@ -190,7 +192,7 @@ class _CustomSignatureState extends State<CustomSignature> {
                     backgroundColor: widget.enabledButtonColor),
                   onPressed: (!isButtonActive) ? null : () => exportImage(),
                   child: SizedBox(
-                    width: 212,
+                    width: 212.w,
                     child: Text(widget.doneButtonText,
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -198,7 +200,7 @@ class _CustomSignatureState extends State<CustomSignature> {
                               ? Colors.white
                               : widget.enabledButtonColor,
                           fontFamily: 'IBMPlexSans',
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w600)),
                   ),
                 ),
