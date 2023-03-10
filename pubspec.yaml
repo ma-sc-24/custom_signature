@@ -35,10 +35,3 @@ flutter: null
 #
 # An image asset can refer to one or more resolution-specific "variants", see
 # https://flutter.dev/assets-and-images/#resolution-aware
-
-fonts:
-  - family: IBMPlexSans
-    fonts:
-      - asset: packages/custom_signature/fonts/IBMPlexSans-Regular.ttf
-      - asset: packages/custom_signature/fonts/IBMPlexSans-SemiBold.ttf
-        weight: 600

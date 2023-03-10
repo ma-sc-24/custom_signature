@@ -112,7 +112,7 @@ class _CustomSignatureState extends State<CustomSignature> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: TextStyle(color: widget.textColor, fontFamily: 'IBMPlexSans', fontSize: 16.sp)),
+          Text(title, style: TextStyle(color: widget.textColor, fontSize: 16.sp)),
           IconButton(
             icon: Icon(widget.icon, size: 23.w),
             color: widget.closeButtonColor,
@@ -179,7 +179,6 @@ class _CustomSignatureState extends State<CustomSignature> {
                           color: (isButtonActive)
                               ? widget.enabledButtonColor
                               : widget.disabledButtonColor,
-                          fontFamily: 'IBMPlexSans',
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w600)),
                   ),
@@ -199,7 +198,6 @@ class _CustomSignatureState extends State<CustomSignature> {
                           color: (isButtonActive)
                               ? Colors.white
                               : widget.enabledButtonColor,
-                          fontFamily: 'IBMPlexSans',
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w600)),
                   ),

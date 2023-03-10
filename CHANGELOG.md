@@ -1,5 +1,4 @@
 ## 1.0.4
-* Add custom font.
 * Add screen util tool to adjust to screen size.
 * Add safe margins and minor UI adjustments.
 
