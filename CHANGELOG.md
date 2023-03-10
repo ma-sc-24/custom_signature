@@ -1,11 +1,16 @@
+## 1.0.4
+* Add custom font.
+* Add screen util tool to adjust to screen size.
+* Add safe margins and minor UI adjustments.
+
 ## 1.0.3
- * Size adjustments.
+* Size adjustments.
 
 ## 1.0.2
- * Remove unnesessary widget.
+* Remove unnesessary widget.
 
 ## 1.0.1
- * Example updated.
+* Example updated.
 
 ## 1.0.0
 * Remove nextPage widget parameter and navigate backward with a pop() function.
