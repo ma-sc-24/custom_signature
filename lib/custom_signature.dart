@@ -87,7 +87,7 @@ class _CustomSignatureState extends State<CustomSignature> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: const Size(375, 812));
+    ScreenUtil.init(context, designSize: const Size(812, 375));
     context = widget.context;
 
     return Scaffold(
