@@ -112,7 +112,8 @@ class _CustomSignatureState extends State<CustomSignature> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: TextStyle(color: widget.textColor, fontSize: 16.sp)),
+          Text(title,
+              style: TextStyle(color: widget.textColor, fontSize: 16.sp)),
           IconButton(
             icon: Icon(widget.icon, size: 23.w),
             color: widget.closeButtonColor,
@@ -174,32 +175,32 @@ class _CustomSignatureState extends State<CustomSignature> {
                   child: SizedBox(
                     width: 142.w,
                     child: Text(widget.deleteButtonText,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: (isButtonActive)
-                              ? widget.enabledButtonColor
-                              : widget.disabledButtonColor,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w600)),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: (isButtonActive)
+                                ? widget.enabledButtonColor
+                                : widget.disabledButtonColor,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w600)),
                   ),
                 ),
                 SizedBox(width: 10.w),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    disabledBackgroundColor: widget.disabledButtonColor,
-                    backgroundColor: widget.enabledButtonColor),
+                      elevation: 0,
+                      disabledBackgroundColor: widget.disabledButtonColor,
+                      backgroundColor: widget.enabledButtonColor),
                   onPressed: (!isButtonActive) ? null : () => exportImage(),
                   child: SizedBox(
                     width: 212.w,
                     child: Text(widget.doneButtonText,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: (isButtonActive)
-                              ? Colors.white
-                              : widget.enabledButtonColor,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w600)),
+                            color: (isButtonActive)
+                                ? Colors.white
+                                : widget.enabledButtonColor,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w600)),
                   ),
                 ),
               ]),
