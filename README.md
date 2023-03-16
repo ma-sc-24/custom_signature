@@ -15,6 +15,8 @@ CustomSignature(
     penColor: Colors.black,
     deleteButtonText: 'Delete',
     doneButtonText: 'Done',
+    titleStyle: const TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+    buttonTextStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
     // optional properties
     backgroundColor: Colors.white,
     textColor: Colors.black,

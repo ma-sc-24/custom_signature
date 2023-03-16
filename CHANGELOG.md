@@ -1,3 +1,6 @@
+## 2.0.0
+* Add title style and text button style
+
 ## 1.0.4
 * Add screen util tool to adjust to screen size.
 * Add safe margins and minor UI adjustments.

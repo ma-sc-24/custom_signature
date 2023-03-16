@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:signature/signature.dart';
 
 /// Main class
-/// [closeAlert], [backgroundColor] and [textColor] are optional properties. Provides an alert to show when user wants to exit: sets the background color in signature area: and sets the title color, respectively.
+/// [closeAlert], [backgroundColor] and [textColor] are optional properties. Provides an alert to show when user wants to exit: sets the background color in signature area; and sets the title color, respectively.
 class CustomSignature extends StatefulWidget {
   final BuildContext context;
   final String title;
@@ -15,6 +15,8 @@ class CustomSignature extends StatefulWidget {
   final IconData icon;
   final String deleteButtonText;
   final String doneButtonText;
+  final TextStyle titleStyle;
+  final TextStyle buttonTextStyle;
   final Widget? closeAlert;
   final Color? backgroundColor;
   final Color? textColor;
@@ -31,6 +33,8 @@ class CustomSignature extends StatefulWidget {
     required this.icon,
     required this.deleteButtonText,
     required this.doneButtonText,
+    required this.titleStyle,
+    required this.buttonTextStyle,
     this.closeAlert,
     this.backgroundColor = Colors.transparent,
     this.textColor = Colors.black,
@@ -112,8 +116,7 @@ class _CustomSignatureState extends State<CustomSignature> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title,
-              style: TextStyle(color: widget.textColor, fontSize: 16.sp)),
+          Text(title, style: widget.titleStyle),
           IconButton(
             icon: Icon(widget.icon, size: 23.w),
             color: widget.closeButtonColor,
@@ -174,14 +177,15 @@ class _CustomSignatureState extends State<CustomSignature> {
                         },
                   child: SizedBox(
                     width: 142.w,
-                    child: Text(widget.deleteButtonText,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: (isButtonActive)
-                                ? widget.enabledButtonColor
-                                : widget.disabledButtonColor,
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w600)),
+                    child: Text(
+                      widget.deleteButtonText,
+                      textAlign: TextAlign.center,
+                      style: widget.buttonTextStyle.copyWith(
+                        color: (isButtonActive)
+                            ? widget.enabledButtonColor
+                            : widget.disabledButtonColor,
+                      ),
+                    ),
                   ),
                 ),
                 SizedBox(width: 10.w),
@@ -193,14 +197,15 @@ class _CustomSignatureState extends State<CustomSignature> {
                   onPressed: (!isButtonActive) ? null : () => exportImage(),
                   child: SizedBox(
                     width: 212.w,
-                    child: Text(widget.doneButtonText,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: (isButtonActive)
-                                ? Colors.white
-                                : widget.enabledButtonColor,
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w600)),
+                    child: Text(
+                      widget.doneButtonText,
+                      textAlign: TextAlign.center,
+                      style: widget.buttonTextStyle.copyWith(
+                        color: (isButtonActive)
+                            ? Colors.white
+                            : widget.enabledButtonColor,
+                      ),
+                    ),
                   ),
                 ),
               ]),
