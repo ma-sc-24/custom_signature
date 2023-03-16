@@ -35,8 +35,10 @@ class FirstPage extends StatelessWidget {
                           disabledButtonColor:
                               Colors.lightGreen.withOpacity(0.5),
                           penColor: Colors.black,
-                          titleStyle: const TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
-                          buttonTextStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                          titleStyle: const TextStyle(
+                              fontWeight: FontWeight.w400, fontSize: 16),
+                          buttonTextStyle: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w600),
                           textColor: Colors.black,
                           deleteButtonText: 'Delete',
                           doneButtonText: 'Done',
@@ -54,7 +56,6 @@ class FirstPage extends StatelessWidget {
                                   child: const Text('No')),
                             ],
                           ),
-
                         ))).then((value) {
               showDialog(
                   context: context,
